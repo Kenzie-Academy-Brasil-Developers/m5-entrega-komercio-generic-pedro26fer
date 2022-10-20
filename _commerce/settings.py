@@ -45,7 +45,8 @@ THIRTY_PART_APPS = [
 ]
 
 MY_APPS = [
-    "users"
+    "users",
+    "products",
 ]
 
 INSTALLED_APPS = THIRTY_PART_APPS + DJANGO_APPS + MY_APPS

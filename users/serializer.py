@@ -1,3 +1,4 @@
+from pyexpat import model
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 from .models import User
@@ -19,3 +20,4 @@ class UserSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         return User.objects.create_user(**validated_data)
+
