@@ -1,10 +1,11 @@
 from email.policy import default
 from django.db import models
-from users.models import User
+import uuid
 
 class Product(models.Model):
-
-    description = models.TextField()
+    
+    id = models.UUIDField(default = uuid.uuid4, primary_key = True, editable = False)
+    description = models.CharField(max_length = 10000)
     price = models.DecimalField(max_digits = 10, decimal_places = 2)
     quantity = models.PositiveIntegerField()
     is_active = models.BooleanField(null = True, blank = True, default = True)
