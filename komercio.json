@@ -1,0 +1,512 @@
+[
+  {
+    "model": "authtoken.token",
+    "pk": "10e8bbe0e58255cc0f12238f7aac6ebf4d884d94",
+    "fields": {
+      "user": "40271e0a-a788-4a52-a664-83685d2b6645",
+      "created": "2022-10-24T20:19:39.333Z"
+    }
+  },
+  {
+    "model": "authtoken.token",
+    "pk": "701e4c893a8974fe1497aba3a3a0b2d7d6dfc459",
+    "fields": {
+      "user": "1404c121-912f-41c3-a78d-83cc5f8e3fef",
+      "created": "2022-10-24T20:18:52.583Z"
+    }
+  },
+  {
+    "model": "authtoken.token",
+    "pk": "edc2d3e5d87ed8d21df2e2ad19ac602707981119",
+    "fields": {
+      "user": "90b45b8e-3b5e-45e0-97a9-d3fe55a2a5eb",
+      "created": "2022-10-24T20:18:09.345Z"
+    }
+  },
+  {
+    "model": "authtoken.token",
+    "pk": "ef6a0c842a39b12b1f8d714fae67fd60e2bcedec",
+    "fields": {
+      "user": "3cc90eb8-d353-42a2-a0d4-cd1239546ed7",
+      "created": "2022-10-24T20:19:52.568Z"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add Token",
+      "content_type": 1,
+      "codename": "add_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change Token",
+      "content_type": 1,
+      "codename": "change_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete Token",
+      "content_type": 1,
+      "codename": "delete_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view Token",
+      "content_type": 1,
+      "codename": "view_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add token",
+      "content_type": 2,
+      "codename": "add_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change token",
+      "content_type": 2,
+      "codename": "change_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete token",
+      "content_type": 2,
+      "codename": "delete_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view token",
+      "content_type": 2,
+      "codename": "view_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 3,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 3,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 3,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 3,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 4,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 4,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 4,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 4,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 5,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 5,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 5,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 5,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 6,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 6,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 6,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 6,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 7,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 7,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 7,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 7,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 8,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 8,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 8,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view user",
+      "content_type": 8,
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add product",
+      "content_type": 9,
+      "codename": "add_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change product",
+      "content_type": 9,
+      "codename": "change_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete product",
+      "content_type": 9,
+      "codename": "delete_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view product",
+      "content_type": 9,
+      "codename": "view_product"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": { "app_label": "authtoken", "model": "token" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": { "app_label": "authtoken", "model": "tokenproxy" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": { "app_label": "admin", "model": "logentry" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": { "app_label": "auth", "model": "permission" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": { "app_label": "auth", "model": "group" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": { "app_label": "contenttypes", "model": "contenttype" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": { "app_label": "sessions", "model": "session" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": { "app_label": "users", "model": "user" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": { "app_label": "products", "model": "product" }
+  },
+  {
+    "model": "users.user",
+    "pk": "1404c121-912f-41c3-a78d-83cc5f8e3fef",
+    "fields": {
+      "last_login": null,
+      "is_superuser": false,
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-10-24T20:16:00.006Z",
+      "username": "Ale",
+      "password": "pbkdf2_sha256$390000$Pf72mYljlcVU3aF5Q2jxJ4$HMlGLCDPOsCstYKwBYvacBeGqBnDSCfe5Hr/gNCJ23Q=",
+      "first_name": "Alexandre",
+      "last_name": "Brother",
+      "is_seller": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": "3cc90eb8-d353-42a2-a0d4-cd1239546ed7",
+    "fields": {
+      "last_login": null,
+      "is_superuser": true,
+      "email": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2022-10-24T20:15:11.538Z",
+      "username": "Pedro",
+      "password": "pbkdf2_sha256$390000$rP6205jH9bluABwf7xbNQs$4BGuOmijvsGZSurx8lmNjhPXhwEIMGBUz/K8eCda23Y=",
+      "first_name": "Pedro",
+      "last_name": "Andrade",
+      "is_seller": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": "40271e0a-a788-4a52-a664-83685d2b6645",
+    "fields": {
+      "last_login": null,
+      "is_superuser": false,
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-10-24T20:16:10.529Z",
+      "username": "Joao",
+      "password": "pbkdf2_sha256$390000$CMFUaP1emf1diiFcWYYQ66$pcNvty2Ck8LoxoH+UHa9Vvmt+JQfa1o7U2vGrFo79gk=",
+      "first_name": "Alexandre",
+      "last_name": "Instrutor",
+      "is_seller": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": "90b45b8e-3b5e-45e0-97a9-d3fe55a2a5eb",
+    "fields": {
+      "last_login": null,
+      "is_superuser": false,
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-10-24T20:16:41.766Z",
+      "username": "San",
+      "password": "pbkdf2_sha256$390000$uqV2laL33l1Em1hqsRvy3O$l3s9hWoO/IvQkrimQ4OBfiZ1Z/hUf04q7PffqlATJPc=",
+      "first_name": "Santuzza",
+      "last_name": "Viana",
+      "is_seller": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": "39375405-e97d-4f7b-ab0d-d05881ab53b6",
+    "fields": {
+      "description": "Play Staion 5",
+      "price": "5000.00",
+      "quantity": 4,
+      "is_active": true,
+      "seller": "1404c121-912f-41c3-a78d-83cc5f8e3fef"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": "610271a8-e088-48bf-baf2-5f2460315828",
+    "fields": {
+      "description": "TV",
+      "price": "299.90",
+      "quantity": 2,
+      "is_active": true,
+      "seller": "40271e0a-a788-4a52-a664-83685d2b6645"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": "e42c6a6e-e094-45dd-8cb7-5331a4fdadde",
+    "fields": {
+      "description": "Video-Game",
+      "price": "555.99",
+      "quantity": 4,
+      "is_active": true,
+      "seller": "90b45b8e-3b5e-45e0-97a9-d3fe55a2a5eb"
+    }
+  }
+]

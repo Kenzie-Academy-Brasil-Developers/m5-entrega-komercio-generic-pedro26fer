@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 import dotenv
+import dj_database_url
 
 dotenv.load_dotenv()
 
@@ -29,7 +30,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['_commerce.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -45,7 +46,8 @@ DJANGO_APPS = [
 
 THIRTY_PART_APPS = [
     "rest_framework",
-    "rest_framework.authtoken"
+    "rest_framework.authtoken",
+    "drf_spectacular",
 ]
 
 MY_APPS = [
@@ -148,5 +150,20 @@ AUTH_USER_MODEL = "users.User"
 
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
-    "PAGE_SIZE": 2
+    "PAGE_SIZE": 2,
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema"
 }
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "API Kormercio",
+    "DESCRIPTION": "This is an API whose purpose is to connect sellers and their customers. Sellers can manage their products, place them for sale, and control existing stock. Buyers can also have a profile, and browse the products.",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False
+}
+
+DATABASE_URL = os.environ.get('DATABASE_URL')
+
+if DATABASE_URL:
+    db_from_env = dj_database_url.config(
+        default=DATABASE_URL, conn_max_age=500, ssl_require=True)
+    DATABASES['default'].update(db_from_env)

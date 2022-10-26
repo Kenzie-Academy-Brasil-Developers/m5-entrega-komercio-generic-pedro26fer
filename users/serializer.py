@@ -3,7 +3,6 @@ from rest_framework.validators import UniqueValidator
 from users.models import User
 
 
-
 class UserSerializer(serializers.ModelSerializer):
 
     username = serializers.CharField(validators=[UniqueValidator(
@@ -19,6 +18,5 @@ class UserSerializer(serializers.ModelSerializer):
         extra_kwargs = {"password": {"write_only": True}}
 
     def create(self, validated_data):
-        
-        return User.objects.create_user(**validated_data)
 
+        return User.objects.create_user(**validated_data)

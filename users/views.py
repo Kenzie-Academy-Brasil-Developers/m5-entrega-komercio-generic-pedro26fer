@@ -4,10 +4,13 @@ from users.serializer import UserSerializer
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAdminUser
 from users.permissions import IsAccountOwner
-from rest_framework.views import Response, status
+from users.utils import UpdateCustomAPIView
 
 
 class UserView(generics.ListCreateAPIView):
+
+    queryset = User
+    serializer_class = UserSerializer
 
     queryset = User.objects.all()
 
@@ -27,7 +30,7 @@ class UserDetailView(generics.ListAPIView):
         return self.queryset.order_by("-date_joined")[0:max_users]
 
 
-class UserUpdateView(generics.UpdateAPIView):
+class UserUpdateView(UpdateCustomAPIView):
 
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAccountOwner]
@@ -36,13 +39,14 @@ class UserUpdateView(generics.UpdateAPIView):
 
     serializer_class = UserSerializer
 
-    def partial_update(self, request, *args, **kwargs):
+    def partial_update(self, request, *args, **kwargs):      
 
-        del request.data["is_active"]
+        
+
         return super().partial_update(request, *args, **kwargs)
 
 
-class UserSoftDeleteView(generics.UpdateAPIView):
+class UserSoftDeleteView(UpdateCustomAPIView):
 
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAdminUser]
@@ -59,4 +63,5 @@ class UserSoftDeleteView(generics.UpdateAPIView):
             if key != "is_active":
                 del request.data[key]
 
+        kwargs['partial'] = True
         return super().partial_update(request, *args, **kwargs)

@@ -5,9 +5,16 @@ from .mixins import SerializerByMethodMixin
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from .permissions import IsAutorizedToPostPatch
 from rest_framework.authentication import TokenAuthentication
+from products.utils import CustomRetrieveUpdateAPIView
+
 
 
 class ListCreateProductsView(SerializerByMethodMixin, generics.ListCreateAPIView):
+
+    
+    queryset = Product
+    serializer_class = ProductDetailSerializer
+
 
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticatedOrReadOnly, IsAutorizedToPostPatch]
@@ -23,10 +30,10 @@ class ListCreateProductsView(SerializerByMethodMixin, generics.ListCreateAPIView
         serializer.save(seller=self.request.user)
 
 
-class RetrieveTotalAndPartialUpdateView(generics.RetrieveUpdateAPIView):
+class RetrieveTotalAndPartialUpdateView(CustomRetrieveUpdateAPIView):
 
     authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAutorizedToPostPatch]
+    permission_classes = [IsAuthenticatedOrReadOnly, IsAutorizedToPostPatch]
 
     queryset = Product.objects.all()
 

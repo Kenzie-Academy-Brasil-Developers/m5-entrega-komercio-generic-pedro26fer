@@ -1,9 +1,13 @@
-from django.test import TestCase
+from rest_framework.test import APITestCase, APIClient
+from rest_framework.authtoken.models import Token
 from products.models import Product
 from users.models import User
+from django.db import IntegrityError
+
+from products.serializers import ProductDetailSerializer, ProductGeneralSerializer
 
 
-class ProductRelationshipTest(TestCase):
+class ProductRelationshipAndAttrTest(APITestCase):
     
     @classmethod
     def setUpTestData(cls) -> None:
@@ -71,7 +75,6 @@ class ProductRelationshipTest(TestCase):
         is_blank = self.product_testing._meta.get_field("is_active").blank
 
         self.assertTrue(is_blank)
-
     
 
 
@@ -108,3 +111,152 @@ class ProductRelationshipTest(TestCase):
             self.assertIn(product, user2.products_on_sale.all())
             self.assertNotIn(product, self.user.products_on_sale.all())
 
+
+
+class ProductsPermissionsTest(APITestCase):
+
+    @classmethod
+    def setUpTestData(cls) -> None:
+
+        cls.seller_data = {
+            "username": "Seller",
+            "password": "12345",
+            "first_name": "Seller",
+            "last_name": "Test",
+            "is_seller": True
+        }
+
+        cls.seller2_data = {
+            "username": "Other",
+            "password": "12345",
+            "first_name": "Seller2",
+            "last_name": "test",
+            "is_seller": True
+        }
+
+        
+        cls.common_user = {
+            "username": "Test2",
+            "password": "12345",
+            "first_name": "Test2",
+            "last_name": "Common User",
+            "is_seller": False
+        }
+        cls.other_user = {
+            "username": "other",
+            "password": "12345",
+            "first_name": "Other",
+            "last_name": "User",
+            "is_seller": False
+        }
+
+        cls.product_data = {
+            "description": "produto teste",
+            "price": 124.32,
+            "quantity": 10,
+            "is_active": True
+        }
+
+
+        cls.product_data_wrong = {
+            "descript": "produto teste",
+            "price": 124.32,
+            "amount": 10,
+            "is_active": True
+        }
+
+        cls.product_data_negative_quantity= {
+            "description": "produto teste",
+            "price": 124.32,
+            "quantity": -10,
+            "is_active": True
+        }
+
+        cls.seller = User.objects.create_user(**cls.seller_data)
+        cls.seller2 = User.objects.create_user(**cls.seller2_data)
+        cls.user = User.objects.create_user(**cls.common_user)
+        cls.other = User.objects.create_user(**cls.other_user)
+        cls.product = Product.objects.create(**cls.product_data, seller = cls.seller)
+
+
+    def test_if_only_sellers_can_post_products(self):
+
+        token = Token.objects.create(user=self.other)
+        client = APIClient()
+        client.credentials(HTTP_AUTHORIZATION='Token '+token.key)
+
+        post_products = client.post('/api/products/', self.product_data, format='json')
+
+        self.assertEqual(post_products.status_code, 403)
+
+
+    def test_if_only_product_owner_can_update_it(self):
+
+        token = Token.objects.create(user=self.seller2)
+        client = APIClient()
+        client.credentials(HTTP_AUTHORIZATION='Token '+token.key)
+
+        update_product = client.patch(f'/api/products/{self.product.id}/', {"quantity":5}, format='json')
+
+        self.assertEqual(update_product.status_code, 403)
+
+
+    def test_anyone_can_retrive_and_list_products(self):
+
+        client = APIClient()
+
+        retrieve_product = client.get(f'/api/products/{self.product.id}/')
+        list_products = client.get(f'/api/products/')
+
+        self.assertEqual(retrieve_product.status_code, 200)
+        self.assertEqual(list_products.status_code, 200)
+
+
+    def test_serializer_post_get_products(self):
+
+        token = Token.objects.create(user=self.seller2)
+        client = APIClient()
+        client.credentials(HTTP_AUTHORIZATION='Token '+token.key)
+
+        post_products = client.post('/api/products/', self.product_data, format='json')
+        get_products = client.get('/api/products/')
+
+        response_post = ProductDetailSerializer(data=post_products.data)  
+        response_get_products = ProductGeneralSerializer(data=get_products.data["results"][0])   
+       
+
+        self.assertTrue(response_post.is_valid())
+        self.assertTrue(response_get_products.is_valid())
+
+
+    def test_post_with_wrong_keys(self):
+
+        with self.assertRaises(TypeError):
+            post_product_wrong_keys = Product.objects.create(**self.product_data_wrong, seller= self.seller)
+
+    
+    def test_post_with_negative_quantity(self):
+
+        with self.assertRaises(IntegrityError):
+            post_product_with_negative_quantity = Product.objects.create(**self.product_data_negative_quantity, seller= self.seller)
+
+
+
+
+
+
+
+        
+
+
+        
+
+
+
+
+    
+
+
+    
+
+    
