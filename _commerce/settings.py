@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['_commerce.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['https://komercio-online.herokuapp.com/', 'localhost']
 
 
 # Application definition
